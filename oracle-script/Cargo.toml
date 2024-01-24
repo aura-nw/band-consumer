@@ -1,0 +1,24 @@
+[package]
+name = "aura_price"
+
+version = "0.1.0"
+authors = ["Band Protocol <dev@bandprotocol.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[package.metadata.scripts]
+optimize = """docker run --rm -v "$(pwd)":/code \
+  --mount type=volume,source="$(basename "$(pwd)")_cache",target=/code/target \
+  --mount type=volume,source=registry_cache,target=/usr/local/cargo/registry \
+  cosmwasm/rust-optimizer:0.12.11
+"""
+
+[dependencies]
+owasm-kit = { version = "0.3.0" }
+obi = { version = "0.0.2" }
+anyhow = "1.0.79"
+num = "0.4.1"
+phf = { version = "0.11", features = ["macros"] }
+schema = "0.1.0"
