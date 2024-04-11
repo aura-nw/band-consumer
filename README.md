@@ -29,18 +29,9 @@ Oracle Script ID on laozi-testnet: [550](https://laozi-testnet6.cosmoscan.io/ora
 
 The codebase is situated within the [oracle-script](https://github.com/aura-nw/band-consumer/tree/main/oracle-script) directory of this repository.
 
-## CW-Band Smart Contract
-The cw-band introduces a standard for those seeking to integrate data from Band's oracle into their CosmWasm smart contract on a Cosmos-SDK-based blockchain via Inter-Blockchain Communication (IBC). The standard comprises data types necessary for requesting and receiving data.
-
-Workflow:
-
-![Work Flow](https://user-images.githubusercontent.com/13800683/229094449-924cd62b-1c0e-4733-875f-adfe34001e16.png)
-
-Cw-band Contract Address on Aura Network: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay](https://euphoria.aurascan.io/contracts/aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay)
-
-[Cw-band contract repository](https://github.com/bandprotocol/cw-band)
-
 ## How to Run
+First of all, you need to config the network in deploy-band/config/chain.js:
+
 1. Deploy the data source on BandChain.
 Select the data source you want to deploy in deploy-band/data-source.js:
 ```
@@ -57,3 +48,15 @@ The result will be the data source ID. Ex: Successfully deployed DataSource ID: 
 node ./oracle-script.js
 ```
 The result will be the oracle script ID. Ex: Successfully deployed OracleScript ID: 550
+
+
+## CW-Band Smart Contract
+The cw-band introduces a standard for those seeking to integrate data from Band's oracle into their CosmWasm smart contract on a Cosmos-SDK-based blockchain via Inter-Blockchain Communication (IBC). The standard comprises data types necessary for requesting and receiving data.
+
+Workflow:
+
+![Work Flow](https://user-images.githubusercontent.com/13800683/229094449-924cd62b-1c0e-4733-875f-adfe34001e16.png)
+
+Cw-band Contract Address on Aura Network: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay](https://euphoria.aurascan.io/contracts/aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay)
+
+[Cw-band contract repository](https://github.com/bandprotocol/cw-band)

@@ -1,15 +1,15 @@
 const { Client, Wallet, Message, Coin, Transaction, Fee } = require('@bandprotocol/bandchain.js')
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 const chainConfig = require('./config/chain').defaultChain;
 
 // Setup the client
 const grpcURL = chainConfig.grpcURL;
 const mnemonic = chainConfig.mnemonic;
-const execPath = path.resolve(__dirname, '../data-source/aura_price-coingecko.py')
-const dataSourceName = 'AURA MEXC Price'
+const execPath = path.resolve(__dirname, '../data-source/aura_price-coingecko.py');
+const dataSourceName = 'AURA MEXC Price';
 
-const client = new Client(grpcURL)
+const client = new Client(grpcURL);
 
 async function createDataSource() {
     // Setup the wallet

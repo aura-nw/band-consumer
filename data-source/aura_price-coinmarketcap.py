@@ -16,7 +16,7 @@ PARAMS = {
     'id': '20326'
 }
 
-def main(symbols: List[str]) -> str:
+def main() -> str:
     try:
         pxs = requests.get(URL, headers=HEADERS, params=PARAMS).json()
         return pxs['data']['20326']['quote']['USD']['price']
