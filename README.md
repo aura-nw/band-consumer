@@ -42,7 +42,7 @@ Cw-band Contract Address on Aura Network: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h8
 
 ## How to Run
 1. Deploy the data source on BandChain.
-Select the data source you want to deploy in deploy-band/data-source.js and run the following command:
+Select the data source you want to deploy in deploy-band/data-source.js:
 ```
 const execPath = path.resolve(__dirname, '../data-source/aura_price-coingecko.py')
 ```
