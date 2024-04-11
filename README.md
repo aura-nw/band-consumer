@@ -39,3 +39,21 @@ Workflow:
 Cw-band Contract Address on Aura Network: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay](https://euphoria.aurascan.io/contracts/aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay)
 
 [Cw-band contract repository](https://github.com/bandprotocol/cw-band)
+
+## How to Run
+1. Deploy the data source on BandChain.
+Select the data source you want to deploy in deploy-band/data-source.js and run the following command:
+```
+const execPath = path.resolve(__dirname, '../data-source/aura_price-coingecko.py')
+```
+and run the following command:
+```
+node ./data-source.js
+```
+The result will be the data source ID. Ex: Successfully deployed DataSource ID: 781
+
+2. Deploy the oracle script on BandChain.
+```
+node ./oracle-script.js
+```
+The result will be the oracle script ID. Ex: Successfully deployed OracleScript ID: 550
