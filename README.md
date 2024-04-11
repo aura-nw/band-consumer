@@ -41,7 +41,7 @@ and run the following command:
 ```
 node ./data-source.js
 ```
-The result will be the data source ID. Ex: Successfully deployed DataSource ID: 781
+The result will be the data source ID. Ex: Successfully deployed DataSource ID: 745
 
 2. Deploy the oracle script on BandChain.
 ```
