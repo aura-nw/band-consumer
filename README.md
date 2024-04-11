@@ -57,6 +57,6 @@ Workflow:
 
 ![Work Flow](https://user-images.githubusercontent.com/13800683/229094449-924cd62b-1c0e-4733-875f-adfe34001e16.png)
 
-Cw-band Contract Address on Aura Network: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay](https://euphoria.aurascan.io/contracts/aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay)
+Cw-band Contract Address on Euphoria Testnet: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay](https://euphoria.aurascan.io/contracts/aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay)
 
 [Cw-band contract repository](https://github.com/bandprotocol/cw-band)
