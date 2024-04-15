@@ -25,7 +25,7 @@ def main() -> str:
 
 if __name__ == "__main__":
     try:
-        print(main(sys.argv[1:]))
+        print(main())
     except Exception as e:
         print(str(e), file=sys.stderr)
         sys.exit(1)
