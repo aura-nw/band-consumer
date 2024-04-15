@@ -26,12 +26,24 @@ python aura_price-coingecko.py
 ## Integration with AURA Backend to avoid Rate Limiting issue
 ![AURA-BE](./img/AURA-BE.png)
 
-AURA Backend should return an API to help aura_price-coingecko.py, aura_price-coinmarketcap.py and aura_price-mexc.py to fetch the price with USD of AURA from CoinGecko, CoinMarketCap and MEXC. The API response should be in the following format:
+AURA Backend should return an API to help aura_price-coingecko.py, aura_price-coinmarketcap.py and aura_price-mexc.py to fetch the price with USD of AURA from CoinGecko, CoinMarketCap and MEXC.
+The input of the API should be the name of the exchange, and the output should be the corresponding price and timestamp.
+
+The input param of API should be in the following format:
 
 ```
 {
-  coingecko: "0.035003",
-  coinmarketcap: "0.03500302",
-  mexc: "0.03500302"
+  source: "coingecko"
 }
 ```
+
+The API response should be in the following format:
+
+```
+{
+  price: "0.035003",
+  timestamp: "1713168933",
+}
+```
+
+Note: Backend should handle the rate limiting issue of CoinGecko, CoinMarketCap and MEXC. Each source should be limited to 1 request per 30 second. If the rate limit is reached, the API should return the latest price and timestamp.
