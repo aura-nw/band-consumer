@@ -20,13 +20,13 @@ pip install requests
 To use the script, run it from the command line with Python:
 
 ```bash
-python aura_price-coingecko.py
+python coingecko-aura-price.py
 ```
 
 ## Integration with AURA Backend to avoid Rate Limiting issue
 ![AURA-BE](./img/AURA-BE.png)
 
-AURA Backend should return an API to help aura_price-coingecko.py, aura_price-coinmarketcap.py and aura_price-mexc.py to fetch the price with USD of AURA from CoinGecko, CoinMarketCap and MEXC.
+AURA Backend should return an API to help coingecko-aura-price.py, aura_price-coinmarketcap.py and aura_price-mexc.py to fetch the price with USD of AURA from CoinGecko, CoinMarketCap and MEXC.
 The input of the API should be the name of the exchange, and the output should be the corresponding price and timestamp.
 
 The input param of API should be in the following format:

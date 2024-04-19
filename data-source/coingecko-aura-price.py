@@ -7,13 +7,18 @@ import sys
 from typing import List
 
 
-URL = "https://api.coingecko.com/api/v3/simple/price?ids=aura-network&vs_currencies=usd"
-HEADERS = {}
+URL = "https://aura-price-api.euphoria.aura.network/price"
+HEADERS = {
+    'Accepts': 'application/json',
+}
+PARAMS = {
+    "source": "coingecko"
+}
 
 def main() -> str:
     try:
-        pxs = requests.get(URL, headers=HEADERS).json()
-        return pxs['aura-network']['usd']
+        pxs = requests.get(URL, headers=HEADERS, params=PARAMS).json()
+        return pxs['price']
     except Exception as e:
         raise e
 

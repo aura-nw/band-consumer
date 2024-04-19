@@ -7,12 +7,12 @@ import sys
 from typing import List
 
 
-URL = "https://api.mexc.com/api/v3/avgPrice"
+URL = "https://aura-price-api.euphoria.aura.network/price"
 HEADERS = {
     'Accepts': 'application/json',
 }
 PARAMS = {
-    'symbol': 'AURAUSDT'
+    "source": "coinmarketcap"
 }
 
 def main() -> str:
