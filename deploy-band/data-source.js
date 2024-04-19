@@ -7,8 +7,8 @@ const chainConfig = require('./config/chain').defaultChain;
 const grpcURL = chainConfig.grpcURL;
 const mnemonic = chainConfig.mnemonic;
 const execPath = [path.resolve(__dirname, '../data-source/coingecko-aura-price.py'),
-                  path.resolve(__dirname, '../data-source/coinmarketcap-aura-price.py'),
-                  path.resolve(__dirname, '../data-source/mexc-aura-price.py')
+                    path.resolve(__dirname, '../data-source/coinmarketcap-aura-price.py'),
+                    path.resolve(__dirname, '../data-source/mexc-aura-price.py')
                 ];
 const dataSourceName = ['AURA CoinGecko Price', 'AURA CoinMarketCap Price', 'AURA MEXC Price'];
 

@@ -32,16 +32,17 @@ The codebase is situated within the [oracle-script](https://github.com/aura-nw/b
 ## How to Run
 First of all, you need to config the network in deploy-band/config/chain.js:
 
-1. Deploy the data source on BandChain.
-Select the data source you want to deploy in deploy-band/data-source.js:
-```
-const execPath = path.resolve(__dirname, '../data-source/aura_price-coingecko.py')
-```
-and run the following command:
+1. Deploy the data source on BandChain with AURA API.
+Run the following command:
 ```
 node ./data-source.js
 ```
-The result will be the data source ID. Ex: Successfully deployed DataSource ID: 745
+The result will be the data source ID. Ex:
+```
+Successfully deployed AURA CoinGecko Price : 796
+Successfully deployed AURA CoinMarketCap Price : 797
+Successfully deployed AURA MEXC Price : 798
+```
 
 2. Deploy the oracle script on BandChain.
 ```
