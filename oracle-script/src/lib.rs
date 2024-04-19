@@ -58,12 +58,14 @@ enum DataSources {
     HUOBIPRO = 224,
     KRAKEN = 228,
     OKX = 229,
-    COINGECKOAURA = 745,
+    CoinGeckoAura = 793,
+    CoinMarketCapAura = 794,
+    MexcAura = 795,
 }
 
 static SYMBOLS: phf::Map<&'static str, &'static [DataSources]> = phf_map! {
     "ETH" => &[DataSources::BINANCE, DataSources::COINBASEPRO, DataSources::COINGECKO, DataSources::COINMARKETCAP, DataSources::CRYPTOCOMPARE, DataSources::HITBTC, DataSources::HUOBIPRO, DataSources::KRAKEN, DataSources::OKX],
-    "AURA" => &[DataSources::COINGECKOAURA],
+    "AURA" => &[DataSources::CoinGeckoAura, DataSources::CoinMarketCapAura, DataSources::MexcAura],
 };
 
 /// Returns a HashMap mapping the data source id to its supported symbols

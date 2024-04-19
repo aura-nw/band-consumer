@@ -64,5 +64,5 @@ async function createOracleScript() {
 }
 
 ;(async () => {
-    console.log("Successfully deployed DataSource ID:", await createOracleScript())
+    console.log("Successfully deployed Oracle Script ID:", await createOracleScript())
 })();
