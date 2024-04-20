@@ -61,3 +61,30 @@ Workflow:
 Cw-band Contract Address on Euphoria Testnet: [aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay](https://euphoria.aurascan.io/contracts/aura1rsjfz405ned8dd3yfjkl99lgu7d5a9h86xc4pe8yzk7d3thhtxqqfzcvay)
 
 [Cw-band contract repository](https://github.com/bandprotocol/cw-band)
+
+## Instantiate the Cw-band Contract
+To instantiate the Cw-band contract, you need to provide the following parameters:
+
+Example:
+```
+{
+  client_id: 'cw-band-price-feed',
+  oracle_script_id: '554',
+  ask_count: '16',
+  min_count: '10',
+  fee_limit: [ { denom: 'uband', amount: '2500000' } ],
+  prepare_gas: '2500000',
+  execute_gas: '2500000',
+  minimum_sources: 3
+}
+```
+
+Where:
+- `client_id`: The client ID of the Cw-band contract.
+- `oracle_script_id`: The Oracle Script ID on BandChain.
+- `ask_count`: The number of validators to ask for the data.
+- `min_count`: The minimum number of validators to respond.
+- `fee_limit`: The fee limit for the transaction.
+- `prepare_gas`: The gas limit for the prepare transaction.
+- `execute_gas`: The gas limit for the execute transaction.
+- `minimum_sources`: The minimum number of data sources to respond.

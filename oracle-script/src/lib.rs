@@ -58,9 +58,9 @@ enum DataSources {
     HUOBIPRO = 224,
     KRAKEN = 228,
     OKX = 229,
-    CoinGeckoAura = 793,
-    CoinMarketCapAura = 794,
-    MexcAura = 795,
+    CoinGeckoAura = 811,
+    CoinMarketCapAura = 812,
+    MexcAura = 813,
 }
 
 static SYMBOLS: phf::Map<&'static str, &'static [DataSources]> = phf_map! {
@@ -89,16 +89,40 @@ fn get_symbols_for_data_sources(symbols: &[String]) -> HashMap<i64, Vec<String>>
 
 /// Parses the individual values to assure its value is usable
 fn validate_value(v: &str) -> Result<Option<f64>> {
-    if v == "-" {
+    // Parses the data source output from "{'price': '0.035522', 'timestamp': '1713602490'}" to "0.035522"
+    let v_price = v
+        .split("-")
+        .nth(0)
+        .ok_or_else(|| anyhow::anyhow!("Invalid data source output"))?
+        .split(":")
+        .nth(1)
+        .ok_or_else(|| anyhow::anyhow!("Invalid data source output"))?
+        .trim().trim_matches('\'');
+
+    if v_price == "-" {
         Ok(None)
     } else {
-        let val = v.parse::<f64>()?;
+        let val = v_price.parse::<f64>()?;
         if val < 0f64 {
             bail!("Invalid value")
         }
         Ok(Some(val))
     }
 }
+
+// Test validate_value
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_validate_value() {
+        print!("111: {:?}", validate_value("{'price': '0.035522' - 'timestamp': '1713602490'}").unwrap());
+        // assert_eq!(validate_value("{'price': '0.035522', 'timestamp': '1713602490'}").unwrap(), Some(0.035522));
+        assert_eq!(1, 2);
+    }
+}
+
 
 /// Validates and parses the a validator's data source output
 fn validate_and_parse_output(ds_output: &str, length: usize) -> Result<Vec<Option<f64>>> {
@@ -107,6 +131,8 @@ fn validate_and_parse_output(ds_output: &str, length: usize) -> Result<Vec<Optio
         .map(|v| validate_value(v.trim()))
         .collect::<Result<Vec<Option<f64>>>>()?;
 
+    println!("parsed_output_length: {:?}", parsed_output.len());
+
     // If the length of the parsed output is not equal to the expected length, raise an error
     if parsed_output.len() != length {
         bail!("Mismatched length");
@@ -114,6 +140,20 @@ fn validate_and_parse_output(ds_output: &str, length: usize) -> Result<Vec<Optio
 
     Ok(parsed_output)
 }
+
+// Test validate_and_parse_output
+// #[cfg(test)]
+// mod tests1 {
+//     use super::*;
+
+//     #[test]
+//     fn test_validate_and_parse_output() {
+//         let ds_output = "{'price': '0.035522' - 'timestamp': '1713602490'}, {'price': '0.035522' - 'timestamp': '1713602490'}}";
+//         // assert_eq!(validate_and_parse_output(ds_output, 11).unwrap(), vec![Some(0.035522); 11]);
+//         println!("111: {:?}", validate_and_parse_output(ds_output, 2).unwrap_err());
+//         assert_eq!(1, 2);
+//     }
+// }
 
 /// Gets the minimum successful response required given the minimum request count
 fn get_minimum_response_count(min_count: i64) -> usize {

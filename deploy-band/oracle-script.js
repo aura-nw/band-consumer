@@ -40,7 +40,7 @@ async function createOracleScript() {
     // Construct the transaction
     const fee = new Fee()
     fee.setAmountList([feeCoin])
-    fee.setGasLimit(1600000)
+    fee.setGasLimit(1700000)
 
     const txn = new Transaction()
     txn.withMessages(requestMessage)
